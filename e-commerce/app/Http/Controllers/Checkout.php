@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\http;
 
-use Session;
+use Illuminate\Support\Facades\Session;
 use App\Models\M_barang;
 use App\Models\M_kategori;
 use App\Models\User;
@@ -118,9 +118,12 @@ class Checkout extends Controller
             $shark->total      = $request->totalorder;
             $shark->save();
           //  Session::forget('kdorder');
-            return redirect()->route('snap')
+            return redirect()->route('checkout.sukses')
                         ->with('success', 'Pesanan Sukses' );
 
+    }
+    public function sukses(){
+      return view ('sukses');
     }
     public function batal(Request $request)
     {

@@ -63,9 +63,12 @@ Route::group(['middleware' => ['web', 'auth', 'roles']],function(){
       Route::get('order/resi/{kdorder}', [Order::class,'resi'])->name('order.resi');
       Route::get('order/detailbayar/{kdorder}', [Order::class,'detailbayar'])->name('order.detailbayar');
 
+      Route::get('/sukses', [Checkout::class,'sukses'])->name('checkout.sukses');
 
 
       Route::get('order', [Order::class,'index'])->name('order');
+      Route::post('order/konfirmasi', [Order::class,'konfirmasi'])->name('order.konfirmasi');
+
       Route::get('order/riwayat', [Order::class,'riwayat'])->name('order.riwayat');
       Route::get('notifikasi', [Notifikasi::class,'index'])->name('notifikasi');
       Route::get('notifikasi/baca/{id}', [Notifikasi::class,'baca'])->name('notifikasi.baca');
@@ -82,6 +85,8 @@ Route::group(['middleware' => ['web', 'auth', 'roles']],function(){
       Route::get('aorder/kirim/{kdorder}', [AOrder::class,'kirim'])->name('aorder.kirim');
       Route::post('aorder/proseskirim', [AOrder::class,'proseskirim'])->name('aorder.proseskirim');
       Route::get('aorder/batal/{kdorder}', [AOrder::class,'batal'])->name('aorder.batal');
+      Route::get('aorder/konfirmasi/{kdorder}', [AOrder::class,'konfirmasi'])->name('aorder.konfirmasi');
+
       Route::get('abarang', [ABarang::class,'index'])->name('abarang');
        Route::get('abarang/create', [ABarang::class,'create'])->name('abarang.create');
        Route::post('abarang/store', [ABarang::class,'store'])->name('abarang.store');

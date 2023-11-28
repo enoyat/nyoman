@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>EZYMART - BELANJA JADI LEBIH MUDAH </title>
+    <title>AMIRA BAKERY</title>
     <link href="{{ asset('/assets/bootstrap-3.3.7-dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
@@ -18,7 +18,7 @@
 
 </head>
 <body >
-<div class="container-fluid" style="background: #c4002e; ">
+<div class="container-fluid" style="background: #2c0512; ">
     <div class="container">
         <div class="row">      
             <div class="col-100"  style="padding-top: 5px; font-size: 12px; display: inline-block; float: right;color:white; height: 30px;">
@@ -67,7 +67,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/admin/adashboard" style="font-family: 'Viga', sans-serif; font-size: 20px;"><img  src="{{ asset('/img/logoezymart.png') }}" height="35"  style="margin-top: -8px"  ></a>
+            <a class="navbar-brand" href="/admin/adashboard" style="font-family: 'Viga', sans-serif; font-size: 20px;"><img  src="{{ asset('/img/logo.png') }}" height="35"  style="margin-top: -8px"  ></a>
           </div>
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">              
@@ -117,10 +117,11 @@
     @endif
  
 </div>        
- <div class="container-fluid" style="height: 80px; background: #c4002e; color: #e8e6e8; padding-top: 15px">
+ <div class="container-fluid" style="height: 80px; background: #2c0512; color: #e8e6e8; padding-top: 15px">
     <div class="container">
-        <p style="text-align: center;">Yogyakarta: Perum Empire Regency No. 2 Sidokabul Yogyakarta<br>
-        Semarang: Jl. Taman Maluku No. 21 Semarang</p>
+      <p style="text-align: center;">Amira Bakery<br>
+        Alamat: Desa Pacor Rt 01 Rw 05, Kec. Kutoarjo, Kab. Purworejo,
+        Jawa Tengah.</p>
     </div>
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

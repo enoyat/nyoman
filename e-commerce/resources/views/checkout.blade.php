@@ -20,7 +20,7 @@
     $total=$key->total; 
     
     ?>
-        <form class="form-horizontal" method="post" action="{{ route('checkout.order') }}">
+        <form class="form-horizontal" method="post" action="{{ route('checkout.order') }}"> 
           @csrf
           <div class="form-group">
             <label >No.Order</label>

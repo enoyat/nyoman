@@ -18,7 +18,7 @@
       </th>			
 
       <th>Pengiriman</th>
-            <th>VA Number</th>
+            <th>Bukti Pembayaran</th>
       <th>
         Status Pembayaran
       </th>
@@ -61,10 +61,13 @@
 
 
           </td>
-            <td>
-              <h5>{{  $key->va }} </h5> 
-                        <a class="btn btn-xs btn-warning" href="{{ URL::to('admin/aorder/detailbayar/'.$key->kdorder) }}"><span class='glyphicon glyphicon-book'> </span> Informasi Pembayaran</a>    
+          <td>
+            @if ($key->filebukti != null)
+              <a href="{{ asset('assets/inventory/' . $key->filebukti) }}" target="_blank">{{ $key->filebukti }}</a><br>
+              <a href="{{ route('aorder.konfirmasi',$key->kdorder) }}" class="btn btn-xs btn-primary"><span class='glyphicon glyphicon-send'> </span> Konfirmasi Pembayaran</a><br>        
+            @endif
           </td>
+           
           <td>
 
 

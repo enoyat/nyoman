@@ -15,25 +15,7 @@ class M_order extends Model
     protected $primaryKey = 'kdorder';
     public $incrementing = false;
     protected $keyType = 'string';  
-    
-    protected $fillable = [
-			'kdorder',
-			'tglorder',
-            'total',
-            'tglverifikasi',
-            'tglkirim',
-            'tglterima',
-            'kdadmin',
-            'kdmember',
-            'totberat',
-            'penerima',
-            'alamatpenerima',
-            'ongkir',
-            'kurir',
-            'f_proses',
-            'f_status',
-            'f_cancel'
-    ];
+    protected $guarded = [];
     public function get_detailbarang(){
         return $this->hasMany('App\\Models\\M_detorder', 'kdorder');
     }

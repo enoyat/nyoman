@@ -108,4 +108,14 @@ class AOrder extends Controller
         //
 
     }
+    public function konfirmasi($id)
+    {
+
+        $shark = M_order::find($id);
+        M_order::where('kdorder', '=', $id)->update(['f_bayar' => '1', 'f_status' => '1']);
+        return redirect()->route('aorder')
+            ->with('success', 'Order sukses dikonfirmasi');
+        //
+
+    }
 }

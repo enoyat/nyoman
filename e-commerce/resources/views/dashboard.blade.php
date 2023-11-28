@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>EZYMART - BELANJA JADI LEBIH MUDAH </title>
+  <title>AMIRA BAKERY</title>
     <link href="{{ asset('/assets/bootstrap-3.3.7-dist/css/bootstrap.min.css') }}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
@@ -16,7 +16,7 @@
 
 </head>
 <body >
-<div class="container-fluid" style="background: #c4002e; ">
+<div class="container-fluid" style="background: #2c0512; ">
     <div class="container">
         <div class="row">      
             <div class="col-100"  style="padding-top: 5px; font-size: 12px; display: inline-block; float: right;color:white">
@@ -52,7 +52,7 @@
     <div class="container" style="height: 80px; ">
       <div class="row">    
          <div class="col-25">
-            <a class="navbar-brand" href="/" style="padding-top: 0px" > <img  src="{{ asset('/img/logo_ezymarttrans.png') }}"    ></a>
+            <a class="navbar-brand" href="/" style="padding-top: 0px" > <img  src="{{ asset('/img/logo.png') }}"  width="80px"  ></a>
           </div>
           <div class="col-75">
                 <form class="navbar-form navbar-left" role="search" action="/home/search" method="get">
@@ -105,10 +105,11 @@
     @endif
  
 </div>        
- <div class="container-fluid" style="height: 80px; background: #c4002e; color: #e8e6e8; padding-top: 15px">
+ <div class="container-fluid" style="height: 80px; background: #2c0512; color: #e8e6e8; padding-top: 15px">
     <div class="container">
-        <p style="text-align: center;">Yogyakarta: Perum Empire Regency No. 2 Sidokabul Yogyakarta<br>
-        Semarang: Jl. Taman Maluku No. 21 Semarang</p>
+        <p style="text-align: center;">Amira Bakery<br>
+          Alamat: Desa Pacor Rt 01 Rw 05, Kec. Kutoarjo, Kab. Purworejo,
+          Jawa Tengah.</p>
     </div>
 </div>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->

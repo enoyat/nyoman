@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Session;
+use Illuminate\Support\Facades\Session;
 use App\Models\M_barang;
 use App\Models\M_kategori;
 use App\Models\User;
@@ -18,10 +18,7 @@ use App\Veritrans\Veritrans;
 use Illuminate\Support\Facades\DB;
 class Order extends Controller
 {
-    public function __construct(){   
-        Veritrans::$serverKey = 'SB-Mid-server-JNNCjlMYxZciQsJ-KJRbZnGD';
-        Veritrans::$isProduction = false;
-    }
+   
 	public function index() {
 		$jmlkeranjang=count(M_keranjang::where('kdmember',Session::get('kdmember'))->get());
           $jmlnotifikasi=count(M_notifikasi::where(['kdmember'=>Session::get('kdmember'),'f_baca'=>'0'])->get());
@@ -53,9 +50,10 @@ class Order extends Controller
     }
     public function detailbayar($kdorder) {
         $jmlkeranjang=count(M_keranjang::where('kdmember',Session::get('kdmember'))->get());
-        $datapembayaran=M_pembayaran::where('id_user',$kdorder)->get();
+        // $datapembayaran=M_pembayaran::where('id_user',$kdorder)->get();
+        $dataorder=M_order::where('kdorder',$kdorder)->get();
         //dd($datapembayaran);
-        return view ('detailbayar')->with(['datapembayaran'=>$datapembayaran,  'jmlkeranjang'=>$jmlkeranjang]);
+        return view ('detailbayar')->with(['dataorder'=>$dataorder,  'jmlkeranjang'=>$jmlkeranjang]);
     }    
     public function riwayat() {
         $jmlkeranjang=count(M_keranjang::where('kdmember',Session::get('kdmember'))->get());
@@ -74,4 +72,35 @@ class Order extends Controller
            // dd($dataorder);
         return view ('riwayat')->with(['dataorder'=>$dataorder,  'jmlkeranjang'=>$jmlkeranjang, 'jmlnotifikasi'=>$jmlnotifikasi]);
     }
+
+    public function konfirmasi(Request $request)
+    {
+       
+        $request->validate([
+            'filefoto' => 'required',
+
+        ]);
+        if (!empty($request->filefoto)) {
+            $file = $request->filefoto;
+            $pathUpload = 'assets/inventory';
+
+            $extension = $file->getClientOriginalExtension();
+            $filename = time() . "." . $extension;
+            $file->move($pathUpload, $filename);
+        } else {
+            $filename = 'default.png';
+        }
+        $order = M_order::find($request->kdorder);
+        $order->filebukti = $filename;       
+        $simpan = $order->save();
+
+        if ($simpan) {
+            return redirect()->route('order')
+                ->with(['success' => 'konfirmasi sukses ']);
+        } else {
+            return redirect()->route('order')
+                ->with(['error' => 'konfirmasi gagal']);
+        } //
+    }
+
 }

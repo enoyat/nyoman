@@ -1,28 +1,6 @@
 @extends('dashboard')
 @section('content')
 
-      <div class="clearfix"></div>
-      <div id="carousel-id" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carousel-id" data-slide-to="0" class=""></li>
-          <li data-target="#carousel-id" data-slide-to="1" class="active"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="item">
-            <img src="{{ asset('img//banner1.jpg') }}">
-            <div class="container">
-            </div>
-          </div>
-          <div class="item active">
-            <img src="{{ asset('img//banner2.jpg') }}">
-            <div class="container">
-
-            </div>
-          </div>
-
-        </div>
-
-      </div>
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3 class="panel-title">Kategori Produk</h3>
