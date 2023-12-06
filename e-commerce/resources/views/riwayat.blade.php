@@ -16,12 +16,8 @@
       <th  >
         Produk
       </th>			
-
-      <th>Pengiriman</th>
-            <th>VA Number</th>
-      <th>
-        Status Pembayaran
-      </th>
+      <th>Penerima</th>
+    
       <th>
         Status Order
       </th>
@@ -60,41 +56,20 @@
 
 
 
-          </td>
-                    <td>
-              <h3>{{  $key->va }} </h3> 
-                        <a class="btn btn-xs btn-warning" href="{{ URL::to('order/detailbayar/'.$key->kdorder) }}"><span class='glyphicon glyphicon-book'> </span> Informasi Pembayaran</a>    
-          </td>
+       
+         
           <td>
 
 
             <?php 
 
-          if ($key->f_status=="1") {
-              echo "<p style='color: blue'>Sudah dibayar</p>";
-
+          if ($key->f_status=="3") {
+            echo "<p style='color: red'>Diterima</p>";
           }
-          else if ($key->f_status=="0") {
-            echo "<p style='color: red'>Belum Bayar</p>";
+          elseif ($key->f_cancel=="1") {
+            echo "<p style='color: red'>Cancel</p>";
           }
-          ?>
 
-          </td>
-          <td>
-
-
-            <?php 
-
-          if ($key->f_proses=="0") {
-              echo "<p style='color: blue'>Belum diproses</p>";
-
-          }
-          else if ($key->f_proses=="1") {
-            echo "<p style='color: red'>Dikemas</p>";
-          }
-          else if ($key->f_proses=="2") {
-            echo "<p style='color: red'>Dikirimkan</p>";
-          }
            ?>
           </td>
           <td>

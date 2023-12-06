@@ -103,4 +103,16 @@ class Order extends Controller
         } //
     }
 
+    public function terimaorder($id) {
+        $order = M_order::find($id);
+        return view('terimaorder', compact('order'));
+    }
+    public function storeterimaorder(Request $request)
+    {
+        $order = M_order::find($request->id);
+        $order->f_proses = "3";
+        $order->f_status = "3";
+        $order->save();
+        return redirect()->route('order');
+    }
 }

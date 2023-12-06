@@ -1,5 +1,18 @@
 @extends('dashboard')
 @section('content')
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">                    
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
     <h4>Pesanan Saya</h4>
     <hr>
     <table class="table " style="font-size: 11px">
@@ -65,12 +78,14 @@
 
                     </td>
                     <td>
-                      @if ($key->filebukti != null)
-                        <a href="{{ asset('assets/inventory/' . $key->filebukti) }}" target="_blank">{{ $key->filebukti }}</a><br>
-                      @else 
-                        <a class="btn btn-xs btn-warning" href="{{ URL::to('order/detailbayar/' . $key->kdorder) }}"><span
-                                class='glyphicon glyphicon-book'> </span> Konfirmasi Pembayaran</a>
-                      @endif
+                        @if ($key->filebukti != null)
+                            <a href="{{ asset('assets/inventory/' . $key->filebukti) }}"
+                                target="_blank">{{ $key->filebukti }}</a><br>
+                        @else
+                            <a class="btn btn-xs btn-warning"
+                                href="{{ URL::to('order/detailbayar/' . $key->kdorder) }}"><span
+                                    class='glyphicon glyphicon-book'> </span> Konfirmasi Pembayaran</a>
+                        @endif
                     </td>
                     <td>
 
@@ -106,7 +121,11 @@
                             data-target="#modal_hapus<?php echo $key->kdorder; ?>"><span class='glyphicon glyphicon-trash'> </span>
                             BATALKAN PESANAN</a><br>
                         <?php } ?>
-
+                        @if ($key->f_proses == '2')
+                            <div data-url="{{ route('order.terimaorder', $key->kdorder) }}"
+                                class="btn btn-primary btn-sm btn-action" style="font-size: 10px;">Terima Pesanan
+                            </div>
+                        @endif
 
                     </td>
 
@@ -137,7 +156,7 @@ foreach($dataorder as $i):
                 </div>
                 <form class="form-horizontal" method="post" action="{{ route('checkout.batal') }}">
                     @csrf
-                    <div class="modal-body">
+                    <div class="modal-bodyx">
                         Batalkan Pesanan <?php echo $kdorder; ?> ?
                     </div>
                     <div class="modal-footer">
@@ -151,4 +170,32 @@ foreach($dataorder as $i):
         </div>
     </div>
     <?php endforeach;?>
+
+    <script>
+        $('.btn-action').click(function() {
+
+            var url = $(this).data("url");
+            $.ajax({
+                url: url,
+                dataType: 'html',
+                success: function(res) {
+
+                    // get the ajax response data
+                    var data = res;
+
+                    // update modal content here
+                    // you may want to format data or
+                    // update other modal elements here too
+                    $('.modal-body').html(data);
+
+                    // show modal
+                    $('#myModal').modal('show');
+
+                },
+                error: function(request, status, error) {
+                    console.log("ajax call went wrong:" + request.responseText);
+                }
+            });
+        });
+    </script>
 @endsection

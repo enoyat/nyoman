@@ -34,7 +34,7 @@ display: none;
       <div id='soalBtn' class='btn btn-info btn-sm' title="Masukkan order"><span class='glyphicon glyphicon-chevron-left'></span> Kembali</div></a>
     <br>
     <br>
-      <div id="area-print">
+      <div id="area-print"> 
             <div class="judul">
               <table class="table">
                 <thead>

@@ -39,7 +39,7 @@
               </a>
               <div class="rating">
                 <i class="fa fa-star">Kode: {{ $fiturs->kdbarang }}</i>
-                <i class="fa fa-star"></i>
+                <i class="fa fa-star">Stok: {{ $fiturs->stok }}</i>
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star-o"></i>
@@ -71,7 +71,7 @@
           </a>
           <div class="rating">
             <i class="fa fa-star">Kode: {{ $product->kdbarang }}</i>
-            <i class="fa fa-star"></i>
+            <i class="fa fa-star">Stok: {{ $product->stok }}</i>
             <i class="fa fa-star"></i>
             <i class="fa fa-star"></i>
             <i class="fa fa-star-o"></i>

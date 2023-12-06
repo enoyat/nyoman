@@ -72,6 +72,8 @@ Route::group(['middleware' => ['web', 'auth', 'roles']],function(){
       Route::get('order/riwayat', [Order::class,'riwayat'])->name('order.riwayat');
       Route::get('notifikasi', [Notifikasi::class,'index'])->name('notifikasi');
       Route::get('notifikasi/baca/{id}', [Notifikasi::class,'baca'])->name('notifikasi.baca');
+      Route::get('order/terimaorder/{id}', [Order::class, 'terimaorder'])->name('order.terimaorder');
+      Route::post('asesor/storeterimaorder', [Order::class, 'storeterimaorder'])->name('order.storeterimaorder');
 
   });
   Route::group(['prefix' =>'admin'],function(){ 
