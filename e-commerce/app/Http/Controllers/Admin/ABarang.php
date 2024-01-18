@@ -56,7 +56,7 @@ class ABarang extends Controller
             'namabarang'  => 'required',            
             'deskripsi'   => 'required',
             'filefoto'        => 'required',
-            'hargabeli'   => 'required',  
+           
             'hargajual'   => 'required',
             'kdkategori'  => 'required'
         ],
@@ -66,7 +66,7 @@ class ABarang extends Controller
           'namabarang.min'      => 'nama Minimal 5 karakter',
           'deskripsi.required'  => 'deskrisi harus ada',
           'filefoto.required'       => 'foto harus ada',
-          'hargabeli.numeric'   => 'Harga beli harus angka',          
+             
           'hargajual.numeric'   => 'Harga Jual harus angka'
         ]);
 
