@@ -84,7 +84,7 @@ class ABarang extends Controller
         $barang->foto = $filename;
         $barang->berat = $request->berat;        
         // $barang->hargabeli = $request->hargabeli; 
-        $barang->f_fiture = $request->f_fiture; 
+        $barang->f_fitur = $request->f_fitur; 
 
         $barang->hargajual = $request->hargajual;
         $barang->kdkategori = $request->kdkategori;
