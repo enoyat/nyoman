@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class M_keranjangstok extends Model
+{
+
+    use HasFactory;
+    protected $table = 'trolystok';
+
+    #kalau kolom primary keynya bernama id, maka baris dibawah ini boleh diisi, dan boleh juga tidak buat
+    protected $primaryKey = 'id';
+
+    protected $fillable = [
+            'email',
+			'tgltransaksi',
+			'kdbarang',
+			'qty',
+			'harga',
+			'jumlah'
+    ];
+    public function get_barang(){
+        return $this->belongsTo('App\\Models\\M_barang', 'kdbarang');
+    }
+}

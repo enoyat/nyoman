@@ -10,6 +10,7 @@ use Session;
 use App\Models\User;
 use App\Models\Role;
 use App\Models\M_member;
+use App\Models\M_kategori;
 use Illuminate\Support\Facades\DB;
 class AuthController extends Controller
 {
@@ -19,7 +20,8 @@ class AuthController extends Controller
             //Login Success
             return redirect()->route('home');
         }
-        return view('login');
+        $kategori=M_kategori::get();
+        return view('login',compact('kategori'));
     }
      function genkode_daftar() {
         $kode =DB::table('member')->max('kdmember');    

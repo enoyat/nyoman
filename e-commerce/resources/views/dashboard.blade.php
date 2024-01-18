@@ -1,133 +1,342 @@
 <!DOCTYPE html>
-<html>
+<html lang="zxx">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>AMIRA BAKERY</title>
-    <link href="{{ asset('/assets/bootstrap-3.3.7-dist/css/bootstrap.min.css') }}" rel="stylesheet">
+    <title>AMIRA BAKERY</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/font-awesome.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/elegant-icons.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/nice-select.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/jquery-ui.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/owl.carousel.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/slicknav.min.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
+    {{-- <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script> --}}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="{{ asset('/assets/bootstrap-3.3.7-dist/js/bootstrap.min.js') }}"></script>
-
-    <link rel="stylesheet" href="{{ asset('assets/style.css') }}">
-
-
-
+   
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.nice-select.min.js') }}"></script>
+    <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+    <script src="{{ asset('js/jquery.slicknav.js') }}"></script>
+    <script src="{{ asset('js/mixitup.min.js') }}"></script>
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    
 </head>
-<body >
-<div class="container-fluid" style="background: #2c0512; ">
-    <div class="container">
-        <div class="row">      
-            <div class="col-100"  style="padding-top: 5px; font-size: 12px; display: inline-block; float: right;color:white">
-                   <div class="notif" >
-                    
-                   <?php $cek=Auth::user(); ?>
-                         @if (!empty($cek))
-                          <a href="{{ route('notifikasi') }}" class="link"><span  class="glyphicon glyphicon-bell">                            
-                          </span> 
 
-                          <span class="badge badge-light" style="background-color: transparent; border: 1px solid #ffffff;color:#ffffff; margin-left: -8px; margin-top: -15px">
-                         
-                          @if(!empty($jmlnotifikasi))
-                              {{ $jmlnotifikasi }}
-                          @else 
-                            0
-                          @endif 
-                          </span> Notifikasi
-                          <span style="padding-right: 10px;"></span></a>
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
 
-                          <a href="{{ route('order') }}" class="link"><span  class="glyphicon glyphicon-list-alt"></span> Pesanan Saya <span style="padding-right: 10px;"></span></a>
-                          <a href="{{ route('order.riwayat') }}" class="link"><span  class="glyphicon glyphicon-briefcase"></span> Riwayat Pesanan <span style="padding-right: 10px;"></span></a>
-                         <span  class="glyphicon glyphicon-user"></span> {{ $cek->email }} 
-                          <a href="/logout"  class="btn-sm btn-default" style="margin: 05px;">LOGOUT</a>
-                         @else  
-                            <a href="/login"   class="btn-sm btn-default" style="margin: 05px;">LOGIN</a>
-                        @endif
-                  </div>
+    <!-- Humberger Begin -->
+    <div class="humberger__menu__overlay"></div>
+    <div class="humberger__menu__wrapper">
+        <div class="humberger__menu__logo">
+            <a href="#"><img src="img/logo.png" alt=""></a>
+        </div>
+        <div class="humberger__menu__cart">
+            <ul>
+                
+                @if(!empty($jmlkeranjang))
+                <li><a href="{{ route('keranjang') }}"><i class="fa fa-shopping-bag"></i> <span>{{ $jmlkeranjang }}</span></a></li>
+            @else 
+            <li><a href="{{ route('keranjang') }}"><i class="fa fa-shopping-bag"></i> <span>0</span></a></li>
+            @endif
+                
+            </ul>
+           
+        </div>
+        <div class="humberger__menu__widget">
+            {{-- <div class="header__top__right__language">
+                <img src="img/language.png" alt="">
+                <div>English</div>
+                <span class="arrow_carrot-down"></span>
+                <ul>
+                    <li><a href="#">Spanis</a></li>
+                    <li><a href="#">English</a></li>
+                </ul>
+            </div> --}}
+            <?php $cek=Auth::user(); ?>
+            @if (empty($cek))
+            <div class="header__top__right__auth">
+                <a href="/login"><i class="fa fa-user"></i> Login</a>
+            </div>
+            @else
+            <div class="header__top__right__auth">
+                <a href="/logout"><i class="fa fa-user"></i> {{ $cek->email }} - Logout</a>
+            </div>
+            @endif
+           
+        </div>
+        <nav class="humberger__menu__nav mobile-menu">
+            <ul>
+                <li class="active"><a href="./index.html">Home</a></li>
+                @if(Auth::user())
+                <li><a href="./shop-grid.html"><a href="{{ route('order') }}" class="link"><span  class="glyphicon glyphicon-list-alt"></span> Pesanan Saya <span style="padding-right: 10px;"></span></a></a></li>
+                            {{-- <li><a href="#">Pages</a>
+                                <ul class="header__menu__dropdown">
+                                    <li><a href="./shop-details.html">Shop Details</a></li>
+                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+                                    <li><a href="./checkout.html">Check Out</a></li>
+                                    <li><a href="./blog-details.html">Blog Details</a></li>
+                                </ul>
+                            </li> --}}
+                            <li><a href="{{ route('order.riwayat') }}" class="link"><span  class="glyphicon glyphicon-briefcase"></span> Riwayat Pesanan <span style="padding-right: 10px;"></span></a></li>
+                           @endif
+            </ul>
+        </nav>
+        <div id="mobile-menu-wrap"></div>
+        <div class="header__top__right__social">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-linkedin"></i></a>
+            <a href="#"><i class="fa fa-pinterest-p"></i></a>
+        </div>
+        <div class="humberger__menu__contact">
+            <ul>
+                <li><i class="fa fa-envelope"></i> Amira Bakery</li>
+                <li>Desa Pacor Rt 01 Rw 05, Kec. Kutoarjo, Kab. Purworejo, Jawa Tengah.</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Humberger End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__top__left">
+                            <ul>
+                                <li><i class="fa fa-envelope"></i> Amira Bakery</li>
+                                <li>Desa Pacor Rt 01 Rw 05, Kec. Kutoarjo, Kab. Purworejo, Jawa Tengah.</li>
+                               </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__top__right">
+                            {{-- <div class="header__top__right__social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-pinterest-p"></i></a>
+                            </div>
+                            <div class="header__top__right__language">
+                                <img src="img/language.png" alt="">
+                                <div>English</div>
+                                <span class="arrow_carrot-down"></span>
+                                <ul>
+                                    <li><a href="#">Spanis</a></li>
+                                    <li><a href="#">English</a></li>
+                                </ul>
+                            </div> --}}
+                            <?php $cek=Auth::user(); ?>
+                            @if (empty($cek))
+                            <div class="header__top__right__auth">
+                                <a href="/login"><i class="fa fa-user"></i> Login</a>
+                            </div>
+                            @else
+                            <div class="header__top__right__auth">
+                                <a href="/logout"><i class="fa fa-user"></i> {{ $cek->email }} - Logout</a>
+                            </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="container" style="height: 80px; ">
-      <div class="row">    
-         <div class="col-25">
-            <a class="navbar-brand" href="/" style="padding-top: 0px" > <img  src="{{ asset('/img/logo.png') }}"  width="80px"  ></a>
-          </div>
-          <div class="col-75">
-                <form class="navbar-form navbar-left" role="search" action="/home/search" method="get">
-                    @csrf
-
-                    <div class="main">
-                      
-                      <!-- Actual search box -->
-                      <div class="form-group has-feedback has-search">
-                        <span class="glyphicon glyphicon-search form-control-feedback"></span>
-                        <input type="text" class="form-control" placeholder="Search" name="katakunci" id="katakunci" 
-                        value="{{ Session::get('katakunci') }}" size="50">
-                      </div>
-                      
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="header__logo">
+                        <a href="/"><img src="{{ asset('img/logo.png') }}" alt="" height="50px"></a>
                     </div>
-
-
-                  </form>
-
-                <div class="btnatasbar" >
-                    <a href="{{ route('keranjang') }}" ><img  src="{{ asset('/img/chart.png') }}"  width="30px" style="margin-top: 10px"><span class="badge badge-light" style="background-color: transparent; border: 1px solid #ffffff;color:#ffffff;; margin-left: -15px; margin-top: -20px">
-                    @if(!empty($jmlkeranjang))
-                        {{ $jmlkeranjang }}
-                    @else 
-                      0
-                    @endif 
-
-                    </span></a>
                 </div>
+                <div class="col-lg-6">
+                    <nav class="header__menu">
+                        <ul>
+                            <li class="active"><a href="/">Home</a></li>
+                            @if(Auth::user())
+                            <li><a href="./shop-grid.html"><a href="{{ route('order') }}" class="link"><span  class="glyphicon glyphicon-list-alt"></span> Pesanan Saya <span style="padding-right: 10px;"></span></a></a></li>
+                            {{-- <li><a href="#">Pages</a>
+                                <ul class="header__menu__dropdown">
+                                    <li><a href="./shop-details.html">Shop Details</a></li>
+                                    <li><a href="./shoping-cart.html">Shoping Cart</a></li>
+                                    <li><a href="./checkout.html">Check Out</a></li>
+                                    <li><a href="./blog-details.html">Blog Details</a></li>
+                                </ul>
+                            </li> --}}
+                            <li><a href="{{ route('order.riwayat') }}" class="link"><span  class="glyphicon glyphicon-briefcase"></span> Riwayat Pesanan <span style="padding-right: 10px;"></span></a></li>
+                           @endif
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3">
+                    <div class="header__cart">
+                        <ul>
+                            {{-- <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li> --}}
 
+                                @if(!empty($jmlkeranjang))
+                                <li><a href="{{ route('keranjang') }}"><i class="fa fa-shopping-bag"></i> <span>{{ $jmlkeranjang }}</span></a></li>
+                            @else 
+                            <li><a href="{{ route('keranjang') }}"><i class="fa fa-shopping-bag"></i> <span>0</span></a></li>
+                            @endif
+                              
+                        </ul>
+                        {{-- <div class="header__cart__price">item: <span>$150.00</span></div> --}}
+                    </div>
+                </div>
+            </div>
+            <div class="humberger__open">
+                <i class="fa fa-bars"></i>
+            </div>
         </div>
-      </div>
-    </div>
-</div>  
+    </header>
+    <!-- Header Section End -->
 
-
-
-
-<br>
-
-  <div class="container" style="min-height: 400px" >
-              @yield('content')
-  </div>
-    <!-- Page Content -->
- <div id="notifications">
-       @if ($message = Session::get('success'))
-        <div class="alert alert-success" style="text-align: center;">
-            <p>{{ $message }}</p>
+    <!-- Hero Section Begin -->
+    <section class="hero">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="hero__categories">
+                        <div class="hero__categories__all">
+                            <i class="fa fa-bars"></i>
+                            <span>All Category</span>
+                        </div>
+                        <ul>
+                            <?php foreach ($kategori as $key) { ?>  
+                                <li class="nav-item">
+                                  <a class="nav-link" href="{{ URL::to('home/kategori/'.$key->kdkategori) }}">{{ $key->namakategori }}</a>
+                                </li>
+                             
+                          <?php } ?>                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="hero__search">
+                        <div class="hero__search__form">
+                    
+                            <form action="/home/search">
+                                @csrf
+                                
+                                
+                                <input type="text" class="form-control" placeholder="Search" name="katakunci" id="katakunci" 
+                                    value="{{ Session::get('katakunci') }}" size="50">
+                                <button type="submit" class="site-btn">SEARCH</button>
+                            </form>
+                        </div>
+                        <div class="hero__search__phone">
+                            <div class="hero__search__phone__icon">
+                                <i class="fa fa-phone"></i>
+                            </div>
+                            <div class="hero__search__phone__text">
+                                <h5>+65 11.188.888</h5>
+                                <span>support 24/7 time</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
+                        <div class="hero__text">
+                            <span>FRUIT FRESH</span>
+                            <h2>Vegetable <br />100% Organic</h2>
+                            <p>Free Pickup and Delivery Available</p>
+                            <a href="#" class="primary-btn">SHOP NOW</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    @endif
- 
-</div>        
- <div class="container-fluid" style="height: 80px; background: #2c0512; color: #e8e6e8; padding-top: 15px">
+    </section>
+    <!-- Hero Section End -->
     <div class="container">
-        <p style="text-align: center;">Amira Bakery<br>
-          Alamat: Desa Pacor Rt 01 Rw 05, Kec. Kutoarjo, Kab. Purworejo,
-          Jawa Tengah.</p>
+    @yield('content')
     </div>
-</div>
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <style type="text/css" media="screen">
-              #notifications {
-        cursor: pointer;
-        position: fixed;
-        right: 0px;
-        z-index: 9999;
-        bottom: 0px;
-        margin-bottom: 22px;
-        margin-right: 15px;
-        min-width: 300px; }
-       
-    </style>
- <script type="text/javascript">
-    $('#notifications').slideDown('slow').delay(3000).slideUp('slow');   
-</script>   
+
+
+    <!-- Footer Section Begin -->
+    <footer class="footer spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__about__logo">
+                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                        </div>
+                        <ul>
+                            <li>Address: Desa Pacor Rt 01 Rw 05, Kec. Kutoarjo, Kab. Purworejo, Jawa Tengah.</li>
+                            <li>Phone: +62 89898998</li>
+                            <li>Email: amira@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                    <div class="footer__widget">
+                        <h6>Useful Links</h6>
+                        <ul>
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">About Our Shop</a></li>
+                            <li><a href="#">Secure Shopping</a></li>
+                            <li><a href="#">Delivery infomation</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Our Sitemap</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#">Who We Are</a></li>
+                            <li><a href="#">Our Services</a></li>
+                            <li><a href="#">Projects</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Innovation</a></li>
+                            <li><a href="#">Testimonials</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="footer__widget">
+                        <h6>Join Our Newsletter Now</h6>
+                        <p>Get E-mail updates about our latest shop and special offers.</p>
+                        <form action="#">
+                            <input type="text" placeholder="Enter your mail">
+                            <button type="submit" class="site-btn">Subscribe</button>
+                        </form>
+                        <div class="footer__widget__social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer__copyright">
+                        <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
+                        <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="{{ asset('js/main.js') }}"></script>
+
 </body>
+
 </html>

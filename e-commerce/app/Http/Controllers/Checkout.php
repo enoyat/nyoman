@@ -23,6 +23,7 @@ class Checkout extends Controller
         use CrossApi;
 	
     	public function index() {
+        $kategori=M_kategori::get();
 		$jmlkeranjang=count(M_keranjang::where('kdmember',Session::get('kdmember'))->get());
       //  $dataorder=M_order::where('kdmember',Session::get('kdmember'))->get(); 
         $dataorder = DB::table('tborder')
@@ -36,7 +37,7 @@ class Checkout extends Controller
             ->get();
            // dd($dataorder);
         $datapropinsi=Checkout::getallprovinsi();
-        return view ('checkout')->with(['dataorder'=>$dataorder,  'jmlkeranjang'=>$jmlkeranjang, 'datapropinsi'=>$datapropinsi]);
+        return view ('checkout')->with(['dataorder'=>$dataorder,  'jmlkeranjang'=>$jmlkeranjang, 'datapropinsi'=>$datapropinsi, 'kategori'=>$kategori]);
 	}
     //
 
@@ -99,7 +100,7 @@ class Checkout extends Controller
     }
    
     public function order(Request $request) {
-
+      $kategori=M_kategori::get();
             $kdorder=Session::get('kdorder');
             $qty=$request->qty;
             if (empty($request->kdkurir)) {
@@ -123,7 +124,8 @@ class Checkout extends Controller
 
     }
     public function sukses(){
-      return view ('sukses');
+      $kategori=M_kategori::get();
+      return view ('sukses',compact('kategori'));
     }
     public function batal(Request $request)
     {

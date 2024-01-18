@@ -57,7 +57,7 @@
           </td>
           <td style="text-align: right;"><?php echo "Rp. ".number_format($fiturs->get_barang->hargajual,0,',','.'); ?></td>
           <td style="text-align: right;"><?php echo $fiturs->qty; ?>
-             <a class="btn btn-xs btn-info" data-toggle="modal" data-target="#modal_edit<?php echo $fiturs->id; ?>"><span class='glyphicon glyphicon-edit'> </span></a>
+             <a class="btn btn-xs btn-info" data-toggle="modal" data-target="#modal_edit<?php echo $fiturs->id; ?>">+/-</a>
           </td>
           <td style="text-align: right;"><?php $subtotal =$fiturs->qty*$fiturs->get_barang->hargajual;
 
@@ -66,7 +66,7 @@
             $total=$total+$subtotal;
             $totberat=$totberat+$berat;
 
-          ?> <a class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal_hapus<?php echo $fiturs->id; ?>"><span class='glyphicon glyphicon-trash'> </span></a>
+          ?> <a class="btn btn-xs btn-danger" data-toggle="modal" data-target="#modal_hapus<?php echo $fiturs->id; ?>">-</a>
         </td>
   
     </tr>

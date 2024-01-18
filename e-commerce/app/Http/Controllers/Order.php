@@ -20,6 +20,7 @@ class Order extends Controller
 {
    
 	public function index() {
+        $kategori=M_kategori::get();
 		$jmlkeranjang=count(M_keranjang::where('kdmember',Session::get('kdmember'))->get());
           $jmlnotifikasi=count(M_notifikasi::where(['kdmember'=>Session::get('kdmember'),'f_baca'=>'0'])->get());
       //  $dataorder=M_order::where('kdmember',Session::get('kdmember'))->get(); 
@@ -34,9 +35,10 @@ class Order extends Controller
             ->orderby('tborder.kdorder', 'desc')
             ->get();
            // dd($dataorder);
-        return view ('order')->with(['dataorder'=>$dataorder,  'jmlkeranjang'=>$jmlkeranjang, 'jmlnotifikasi'=>$jmlnotifikasi]);
+        return view ('order')->with(['dataorder'=>$dataorder,  'jmlkeranjang'=>$jmlkeranjang, 'jmlnotifikasi'=>$jmlnotifikasi, 'kategori'=>$kategori]);
 	}
     public function resi($kdorder) {
+        $kategori=M_kategori::get();
         $jmlkeranjang=count(M_keranjang::where('kdmember',Session::get('kdmember'))->get());
         $dataorder = DB::table('tborder')
             ->join('detorder', 'tborder.kdorder', '=', 'detorder.kdorder')
@@ -46,16 +48,18 @@ class Order extends Controller
             ->where('tborder.kdorder','=',$kdorder)            
             ->get();
            // dd($dataorder);
-        return view ('resi')->with(['dataorder'=>$dataorder,  'jmlkeranjang'=>$jmlkeranjang]);
+        return view ('resi')->with(['dataorder'=>$dataorder,  'jmlkeranjang'=>$jmlkeranjang, 'kategori'=>$kategori]);
     }
     public function detailbayar($kdorder) {
+        $kategori=M_kategori::get();
         $jmlkeranjang=count(M_keranjang::where('kdmember',Session::get('kdmember'))->get());
         // $datapembayaran=M_pembayaran::where('id_user',$kdorder)->get();
         $dataorder=M_order::where('kdorder',$kdorder)->get();
         //dd($datapembayaran);
-        return view ('detailbayar')->with(['dataorder'=>$dataorder,  'jmlkeranjang'=>$jmlkeranjang]);
+        return view ('detailbayar')->with(['dataorder'=>$dataorder,  'jmlkeranjang'=>$jmlkeranjang, 'kategori'=>$kategori]);
     }    
     public function riwayat() {
+        $kategori=M_kategori::get();
         $jmlkeranjang=count(M_keranjang::where('kdmember',Session::get('kdmember'))->get());
                   $jmlnotifikasi=count(M_notifikasi::where(['kdmember'=>Session::get('kdmember'),'f_baca'=>'0'])->get());
       //  $dataorder=M_order::where('kdmember',Session::get('kdmember'))->get(); 
@@ -70,7 +74,7 @@ class Order extends Controller
             ->orderby('tborder.kdorder', 'desc')
             ->get();
            // dd($dataorder);
-        return view ('riwayat')->with(['dataorder'=>$dataorder,  'jmlkeranjang'=>$jmlkeranjang, 'jmlnotifikasi'=>$jmlnotifikasi]);
+        return view ('riwayat')->with(['dataorder'=>$dataorder,  'jmlkeranjang'=>$jmlkeranjang, 'jmlnotifikasi'=>$jmlnotifikasi, 'kategori'=>$kategori]);
     }
 
     public function konfirmasi(Request $request)
@@ -104,8 +108,9 @@ class Order extends Controller
     }
 
     public function terimaorder($id) {
+        $kategori=M_kategori::get();
         $order = M_order::find($id);
-        return view('terimaorder', compact('order'));
+        return view('terimaorder', compact('order','kategori'));
     }
     public function storeterimaorder(Request $request)
     {

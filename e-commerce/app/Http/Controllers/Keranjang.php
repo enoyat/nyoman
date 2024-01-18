@@ -7,6 +7,7 @@ use App\Models\M_detorder;
 use App\Models\M_keranjang;
 use App\Models\M_order;
 use App\Models\User;
+use App\Models\M_kategori;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -16,10 +17,11 @@ class Keranjang extends Controller
 {
     public function index()
     {
+        $kategori=M_kategori::get();
         $datakeranjang = M_keranjang::where('kdmember', Session::get('kdmember'))
             ->with('get_barang')->get();
         $jmlkeranjang = count(M_keranjang::where('kdmember', Session::get('kdmember'))->get());
-        return view('keranjang')->with(['datakeranjang' => $datakeranjang, 'jmlkeranjang' => $jmlkeranjang, 'totberat' => 0]);
+        return view('keranjang')->with(['datakeranjang' => $datakeranjang, 'jmlkeranjang' => $jmlkeranjang, 'totberat' => 0, 'kategori'=>$kategori]);
     }
 
     public function tambahkeranjang($kdbarang)
