@@ -32,27 +32,27 @@
                     @endif
                     <div class="form-group">
                         <label for=""><strong>Nama Lengkap</strong></label>
-                        <input type="text" name="name" class="form-control" placeholder="Nama Lengkap" >
+                        <input type="text" name="name" class="form-control" placeholder="Nama Lengkap" value="{{ old('name')}}">
                     </div>
                     <div class="form-group">
                         <label for=""><strong>Email</strong></label>
-                        <input type="text" name="email" class="form-control" placeholder="Email">
+                        <input type="text" name="email" class="form-control" placeholder="Email" value="{{ old('email') }}">
                     </div>
                     <div class="form-group">
                         <label for=""><strong>Alamat</strong></label>
-                        <input type="text" name="alamat" class="form-control" placeholder="alamat">
+                        <input type="text" name="alamat" class="form-control" placeholder="alamat" value="{{ old('alamat')}}">
                     </div>
                     <div class="form-group">
                         <label for=""><strong>No HP</strong></label>
-                        <input type="text" name="nohp" class="form-control" placeholder="nohp">
+                        <input type="text" name="nohp" class="form-control" placeholder="nohp" value="{{ old('nohp')}}">
                     </div>                                        
                     <div class="form-group">
                         <label for=""><strong>Password</strong></label>
-                        <input type="password" name="password" class="form-control" placeholder="Password">
+                        <input type="password" name="password" class="form-control" placeholder="Password" value="{{ old('password')}}">
                     </div>
                     <div class="form-group">
                         <label for=""><strong>Konfirmasi Password</strong></label>
-                        <input type="password" name="password_confirmation" class="form-control" placeholder="Password">
+                        <input type="password" name="password_confirmation" class="form-control" placeholder="Password" value="{{ old('password_confirmation')}}">
                     </div>
                 </div>
                 <div class="card-footer">

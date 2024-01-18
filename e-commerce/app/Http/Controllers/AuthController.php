@@ -97,8 +97,9 @@ class AuthController extends Controller
     public function register(Request $request)
     {
         $rules = [
-            'name'                  => 'required|min:3|max:35',
+            'name'                  => 'required|min:3|max:35|string|regex:/^[a-zA-Z ]+$/u',
             'email'                 => 'required|email|unique:users,email',
+            'nohp'                => 'required|min:10|int',
             'password'              => 'required|confirmed'
 
         ];

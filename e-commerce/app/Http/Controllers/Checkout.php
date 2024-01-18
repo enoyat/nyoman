@@ -85,7 +85,7 @@ class Checkout extends Controller
             $berat=$request->berat;
             $kurir=$request->kurir;
             $response = $this->performRequest('POST','cost',[
-                'origin' => 501,
+                'origin' => 377,
                 'destination' => $id,
                 'weight' => $berat,
                 'courier' => $kurir

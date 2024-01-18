@@ -77,15 +77,9 @@
                         <label>Propinsi</label>
                         <div class="filter__sort">
                             <select name="kdpropinsi" id="kdpropinsi" class="form-control"> 
-                                <option value="">== Propinsi tujuan == </option>
-
-                                <?php 
-                      foreach ($datapropinsi as $cty) {
-                      ?>
-                                <option value="<?php echo $cty->province_id; ?>"><?php echo $cty->province; ?></option>
-                                <?php       
-                      }
-                      ?>
+                                <option value="">== Propinsi Tujuan == </option>
+                               <option value="10" data-nama="Jawa Tengah">Jawa Tengah</option>
+                               <option value="5" data-nama="Jawa Timur">DI Yogyakarta </option>
                             </select>
                         </div>
                     </div>
