@@ -47,13 +47,23 @@
         </div>
         <div class="humberger__menu__cart">
             <ul>
+                {{-- <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li> --}}
+                @if (!empty($jmlnotifikasi))
+                    <li><a href="{{ route('notifikasi') }}" class="link"><i
+                                class="fa fa-bell"></i><span>{{ $jmlnotifikasi }}</span></a></li>
+                @else
+                    <li><a href="{{ route('notifikasi') }}" class="link"><i class="fa fa-bell"></i><span>
+                                0</span></a></li>
+                @endif
 
                 @if (!empty($jmlkeranjang))
                     <li><a href="{{ route('keranjang') }}"><i class="fa fa-shopping-bag"></i>
                             <span>{{ $jmlkeranjang }}</span></a></li>
                 @else
-                    <li><a href="{{ route('keranjang') }}"><i class="fa fa-shopping-bag"></i> <span>0</span></a></li>
+                    <li><a href="{{ route('keranjang') }}"><i class="fa fa-shopping-bag"></i> <span>0</span></a>
+                    </li>
                 @endif
+
 
             </ul>
 
@@ -196,7 +206,13 @@
                     <div class="header__cart">
                         <ul>
                             {{-- <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li> --}}
-
+                            @if (!empty($jmlnotifikasi))
+                                <li><a href="{{ route('notifikasi') }}" class="link"><i
+                                            class="fa fa-bell"></i><span>{{ $jmlnotifikasi }}</span></a></li>
+                            @else
+                                <li><a href="{{ route('notifikasi') }}" class="link"><i
+                                            class="fa fa-bell"></i><span> 0</span></a></li>
+                            @endif
                             @if (!empty($jmlkeranjang))
                                 <li><a href="{{ route('keranjang') }}"><i class="fa fa-shopping-bag"></i>
                                         <span>{{ $jmlkeranjang }}</span></a></li>
