@@ -218,18 +218,18 @@
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="footer__about">
                         <div class="footer__about__logo">
-                            <a href="./index.html"><img src="img/logo.png" alt=""></a>
+                            <a href="/"><img src="{{ asset('img/logo.png')}}" alt=""></a>
                         </div>
                         <ul>
                             <li>Address: Desa Pacor Rt 01 Rw 05, Kec. Kutoarjo, Kab. Purworejo, Jawa Tengah.</li>
-                            <li>Phone: +62 89898998</li>
+                            <li>Phone: +62 085740074451</li>
                             <li>Email: amira@gmail.com</li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
                     <div class="footer__widget">
-                        <h6>Useful Links</h6>
+                        {{-- <h6>Useful Links</h6>
                         <ul>
                             <li><a href="#">About Us</a></li>
                             <li><a href="#">About Our Shop</a></li>
@@ -245,22 +245,19 @@
                             <li><a href="#">Contact</a></li>
                             <li><a href="#">Innovation</a></li>
                             <li><a href="#">Testimonials</a></li>
-                        </ul>
+                        </ul> --}}
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12">
                     <div class="footer__widget">
-                        <h6>Join Our Newsletter Now</h6>
-                        <p>Get E-mail updates about our latest shop and special offers.</p>
-                        <form action="#">
-                            <input type="text" placeholder="Enter your mail">
-                            <button type="submit" class="site-btn">Subscribe</button>
-                        </form>
+                        <h6>Tentang kami</h6>
+                        <p>Kunjungi Media Sosial Kami.</p>
+                        
                         <div class="footer__widget__social">
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                            <a href="#"><i class="fa fa-instagram"></i></a>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                            <a href="https://www.facebook.com/profile.php?id=100054650370228" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/amirabakeryy/"><i class="fa fa-instagram"></i></a>
+                            <a href="https://wa.me/6285740074451"><i class="fa fa-whatsapp"></i></a>
+                           
                         </div>
                     </div>
                 </div>
@@ -269,7 +266,7 @@
                 <div class="col-lg-12">
                     <div class="footer__copyright">
                         <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved 
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> Amira Bakery All rights reserved 
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
                         <div class="footer__copyright__payment"><img src="img/payment-item.png" alt=""></div>
                     </div>

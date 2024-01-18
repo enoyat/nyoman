@@ -38,17 +38,17 @@
                                 <i class="fa fa-phone"></i>
                             </div>
                             <div class="hero__search__phone__text">
-                                <h5>+65 11.188.888</h5>
+                                <h5>+6285740074451</h5>
                                 <span>support 24/7 time</span>
                             </div>
                         </div>
                     </div>
-                    <div class="hero__item set-bg" data-setbg="img/hero/banner.jpg">
+                    <div class="hero__item set-bg" data-setbg="{{ asset('img/hero/banner.jpg') }}">
                         <div class="hero__text">
                             <span>FRUIT FRESH</span>
                             <h2>Vegetable <br />100% Organic</h2>
                             <p>Free Pickup and Delivery Available</p>
-                            <a href="#" class="primary-btn">SHOP NOW</a>
+                          
                         </div>
                     </div>
                 </div>
@@ -103,8 +103,9 @@
                     <div class="featured__item">
                         <div class="featured__item__pic set-bg" data-setbg="{{ asset('assets/inventory/'.$fiturs->foto) }}">
                             <ul class="featured__item__pic__hover">
-                                <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+
+                                <li><a href="{{ route('barang',$fiturs->kdbarang) }}"><i class="fa fa-retweet"></i></a></li>
+                                    
                                 <li><a href="{{ route('keranjang.tambahkeranjang',$fiturs->kdbarang) }}"><i class="fa fa-shopping-cart"></i></a></li>
                             </ul>
                         </div>
@@ -149,8 +150,8 @@
                         <div class="featured__item">
                             <div class="featured__item__pic set-bg" data-setbg="{{ asset('assets/inventory/'.$product->foto) }}">
                                 <ul class="featured__item__pic__hover">
-                                    <li><a href="#"><i class="fa fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-retweet"></i></a></li>
+                                   
+                                    <li><a href="{{ route('barang',$product->kdbarang) }}"><i class="fa fa-retweet"></i></a></li>
                                     <li><a href="{{ route('keranjang.tambahkeranjang',$product->kdbarang) }}"><i class="fa fa-shopping-cart"></i></a></li>
                                 </ul>
                             </div>
