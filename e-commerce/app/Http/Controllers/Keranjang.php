@@ -41,7 +41,7 @@ class Keranjang extends Controller
             }
             else {
                 return redirect()->route('home')
-                ->with('success', 'Stok Barang tidak tersedia');
+                ->with('error', 'Stok Barang tidak tersedia');
             }
             
         } else {
