@@ -92,7 +92,7 @@
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li><a href="./index.html">Home</a></li>
+                <li><a href="/">Home</a></li>
                 @if (Auth::user())
                     <li><a href="./shop-grid.html"><a href="{{ route('order') }}" class="link"><span
                                     class="glyphicon glyphicon-list-alt"></span> Pesanan Saya <span
