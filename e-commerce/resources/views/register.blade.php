@@ -12,7 +12,7 @@
         <div class="col-md-4 offset-md-4 mt-5">
             <div class="card">
                 <div class="card-header">
-                    <h3 class="text-center">Form Register</h3>
+                    <h3 class="text-center">Form Register Baru</h3>
                 </div>
                 <form action="{{ route('register') }}" method="post">
                 @csrf
@@ -32,7 +32,7 @@
                     @endif
                     <div class="form-group">
                         <label for=""><strong>Nama Lengkap</strong></label>
-                        <input type="text" name="name" class="form-control" placeholder="Nama Lengkap">
+                        <input type="text" name="name" class="form-control" placeholder="Nama Lengkap" >
                     </div>
                     <div class="form-group">
                         <label for=""><strong>Email</strong></label>
