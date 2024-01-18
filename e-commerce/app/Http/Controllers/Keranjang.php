@@ -28,7 +28,9 @@ class Keranjang extends Controller
     {
         if (Auth::user()) {
             $id = $kdbarang;
-            $cekstok = M_barang::where('stok', ">", 0)->count();
+            $cekstok = M_barang::where('kdbarang',$id)->where('stok', ">", 0)->count();
+
+
             if ($cekstok > 0) {
                 $simpan = M_keranjang::create(['kdmember' => Session::get('kdmember'),
                     'kdbarang' => $id,
