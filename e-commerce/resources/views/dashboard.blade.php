@@ -81,7 +81,7 @@
         </div>
         <nav class="humberger__menu__nav mobile-menu">
             <ul>
-                <li class="active"><a href="./index.html">Home</a></li>
+                <li ><a href="./index.html">Home</a></li>
                 @if(Auth::user())
                 <li><a href="./shop-grid.html"><a href="{{ route('order') }}" class="link"><span  class="glyphicon glyphicon-list-alt"></span> Pesanan Saya <span style="padding-right: 10px;"></span></a></a></li>
                             {{-- <li><a href="#">Pages</a>
@@ -167,7 +167,7 @@
                 <div class="col-lg-6">
                     <nav class="header__menu">
                         <ul>
-                            <li class="active"><a href="/">Home</a></li>
+                            <li ><a href="/">Home</a></li>
                             @if(Auth::user())
                             <li><a href="./shop-grid.html"><a href="{{ route('order') }}" class="link"><span  class="glyphicon glyphicon-list-alt"></span> Pesanan Saya <span style="padding-right: 10px;"></span></a></a></li>
                             {{-- <li><a href="#">Pages</a>
