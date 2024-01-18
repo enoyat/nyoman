@@ -51,7 +51,15 @@ class Keranjang extends Controller
     {
         $id = $request->id;
         $qty = $request->qty;
-
+        $cekstok=M_barang::where('kdbarang',$request->kdbarang)->count();
+        if($cekstok>0){
+            $stok=M_barang::where('kdbarang',$request->kdbarang)->first();
+            if($qty>$stok->stok){
+                return redirect()->route('keranjang')
+                ->with('error', 'Stok tidak mencukupi');
+            }
+        }
+        
         $shark = M_keranjang::find($id);
         //$shark->name       = Input::get('name');
         $shark->qty = $qty;

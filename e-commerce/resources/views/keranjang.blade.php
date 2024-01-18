@@ -149,6 +149,7 @@ foreach($datakeranjang as $i):
 <?php
 foreach($datakeranjang as $i):
     $id=$i->id;
+    $kdbarang=$i->kdbarang;
     $namabarang=$i->namabarang;
     $foto=$i->foto;
     $qty=$i->qty;
@@ -174,6 +175,7 @@ foreach($datakeranjang as $i):
         </div>
         <div class="modal-footer">
             <input type="hidden" name="id" value="<?php echo $id;?>">
+            <input type="hidden" name="kdbarang" value="<?php echo $kdbarang;?>">
             <button class="btn btn-danger">Simpan</button>
             <button class="btn" data-dismiss="modal" aria-hidden="true">Tutup</button>
             
