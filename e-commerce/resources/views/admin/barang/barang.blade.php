@@ -30,6 +30,9 @@
       <th>
         Gambar
       </th>
+      <th>
+				Feature Produk
+			</th>
 			<th>
 				stok
 			</th>
@@ -52,6 +55,7 @@
 
       <td><img src="{{ asset('assets/inventory/'.$key->foto) }}"  height="50px">
       </td>
+      <td>@if($key->f_fitur=="1") Y @else N @endif</td>
       <td><?php echo $key->stok; ?></td>
 
 	<td> 

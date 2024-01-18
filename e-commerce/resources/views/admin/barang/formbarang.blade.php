@@ -38,9 +38,13 @@
 					<textarea name="deskripsi" required="" class="form-control" rows="10">{{ old('deskripsi') }}</textarea>
 				</div>
 				<div class="form-group">
-					<label >Harga Beli</label>
-					<input type="text" class="form-control" id="hargabeli" name="hargabeli" placeholder="Harga Beli" value="{{ old('hargabeli') }}" required="">
-				</div>					
+					<label >Feature Produk</label>
+					<select name="f_fitur" id="f_fitur" class="form-control" required="required">
+					
+					<option value="Y">Y</option>
+					<option value="N">N</option>
+					</select>
+				</div>						
 				<div class="form-group">
 					<label >Harga Jual</label>
 					<input type="text" class="form-control" id="hargajual" name="hargajual" placeholder="Harga jual" value="{{ old('hargajual') }}" required="">

@@ -83,7 +83,9 @@ class ABarang extends Controller
         $barang->deskripsi = $request->deskripsi;
         $barang->foto = $filename;
         $barang->berat = $request->berat;        
-        $barang->hargabeli = $request->hargabeli;        
+        // $barang->hargabeli = $request->hargabeli; 
+        $barang->f_fiture = $request->f_fiture; 
+
         $barang->hargajual = $request->hargajual;
         $barang->kdkategori = $request->kdkategori;
         $barang->stok = 0;
@@ -149,7 +151,7 @@ class ABarang extends Controller
         $request->validate([                       
             'namabarang'  => 'required',            
             'deskripsi'   => 'required',
-            'hargabeli'   => 'required',  
+          
             'hargajual'   => 'required',
             'kdkategori'  => 'required'
         ],
@@ -157,7 +159,7 @@ class ABarang extends Controller
           'kdbarang.unique'     => 'Kdbarang sudah ada',
           'namabarang.min'      => 'nama Minimal 5 karakter',
           'deskripsi.required'  => 'deskrisi harus ada',
-          'hargabeli.numeric'   => 'Harga beli harus angka',          
+             
           'hargajual.numeric'   => 'Harga Jual harus angka'
         ]);
 
@@ -177,7 +179,7 @@ class ABarang extends Controller
                                         'deskripsi' => $request->deskripsi,
                                         'foto' => $filename,
                                         'berat' => $request->berat,  
-                                        'hargabeli' => $request->hargabeli,       
+                                        'f_fitur' => $request->f_fitur,                                     
                                         'hargajual' => $request->hargajual,
                                         'kdkategori' => $request->kdkategori
                                         ]); 

@@ -12,7 +12,8 @@ foreach ($databarang as $key )
 	$berat 	= $key->berat;
 	$fotolama = $key->foto;
 	$kdkategori= $key->kdkategori;
-	$namakategori= $key->namakategori;
+	$namakategori= $key->get_kategori->namakategori;
+	$f_fitur= $key->f_fitur;
 
 }
 ?>
@@ -55,8 +56,12 @@ foreach ($databarang as $key )
 					<textarea name="deskripsi" required="" class="form-control" rows="10"><?php echo $deskripsi; ?></textarea>
 				</div>
 				<div class="form-group">
-					<label >Harga Beli</label>
-					<input type="text" class="form-control" id="hargabeli" name="hargabeli" placeholder="Harga" value="<?php echo $hargabeli; ?>" required="">
+					<label >Feature Produk</label>
+					<select name="f_fitur" id="f_fitur" class="form-control" required="required">
+					<option value="<?php echo $f_fitur; ?>">@if($f_fitur=="1") Y @else N @endif</option>
+					<option value="Y">Y</option>
+					<option value="N">N</option>
+					</select>
 				</div>			
 				<div class="form-group">
 					<label >Harga Jual</label>
@@ -69,7 +74,8 @@ foreach ($databarang as $key )
 				<div class="form-group">
 						<label for="">Kategori</label>
 					<select name="kdkategori" id="kdkategori" class="form-control" required="required">
-					<option value="<?php echo $kdkategori; ?>"><?php echo $namakategori; ?></option>
+
+					<option value="<?php echo $kdkategori; ?>" selected><?php echo $namakategori; ?></option>
 					<?php 
 					foreach ($kategori as $ktg ) 
 					{ ?>
