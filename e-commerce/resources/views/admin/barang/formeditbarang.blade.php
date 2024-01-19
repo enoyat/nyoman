@@ -58,7 +58,7 @@ foreach ($databarang as $key )
 				<div class="form-group">
 					<label >Feature Produk</label>
 					<select name="f_fitur" id="f_fitur" class="form-control" required="required">
-					<option value="<?php echo $f_fitur; ?>">@if($f_fitur=="1") Y @else N @endif</option>
+					<option value="<?php echo $f_fitur; ?>">{{ $f_fitur }}</option>
 					<option value="Y">Y</option>
 					<option value="N">N</option>
 					</select>

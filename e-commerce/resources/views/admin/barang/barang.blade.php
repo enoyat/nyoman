@@ -55,7 +55,7 @@
 
       <td><img src="{{ asset('assets/inventory/'.$key->foto) }}"  height="50px">
       </td>
-      <td>@if($key->f_fitur=="1") Y @else N @endif</td>
+      <td>{{ $f_fitur }}</td>
       <td><?php echo $key->stok; ?></td>
 
 	<td> 
