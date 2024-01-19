@@ -22,7 +22,7 @@ class Home extends Controller
 		Session::forget('namakategori');
 		Session::forget('katakunci');
         $product = M_barang::orderBy('namabarang')->paginate(20);
-        $fitur=M_barang::where('f_fitur','1')->orderBy('namabarang')->limit(5)->get();
+        $fitur=M_barang::where('f_fitur','Y')->orderBy('namabarang')->limit(5)->get();
         $jmlkeranjang=count(M_keranjang::where('kdmember',Session::get('kdmember'))->get());
         $jmlnotifikasi=count(M_notifikasi::where(['kdmember'=>Session::get('kdmember'),'f_baca'=>'0'])->get());
 
@@ -37,7 +37,7 @@ class Home extends Controller
 		Session::put('namakategori',$xnamakategori);
 
 		$kategori=M_kategori::get();
-		$fitur=M_barang::where('f_fitur','1')->orderBy('namabarang')->limit(5)->get();
+		$fitur=M_barang::where('f_fitur','Y')->orderBy('namabarang')->limit(5)->get();
 
         $product = M_barang::where('kdkategori',$xkdkategori)->orderBy('namabarang')->paginate(20);
         $jmlkeranjang=count(M_keranjang::where('kdmember',Session::get('kdmember'))->get());
@@ -62,7 +62,7 @@ class Home extends Controller
         }
         $product = $query->paginate(20);
 		$kategori=M_kategori::get();
-		$fitur=M_barang::where('f_fitur','1')->orderBy('namabarang')->limit(5)->get();
+		$fitur=M_barang::where('f_fitur','Y')->orderBy('namabarang')->limit(5)->get();
         $jmlkeranjang=count(M_keranjang::where('kdmember',Session::get('kdmember'))->get());
         $jmlnotifikasi=count(M_notifikasi::where(['kdmember'=>Session::get('kdmember'),'f_baca'=>'0'])->get());
 
