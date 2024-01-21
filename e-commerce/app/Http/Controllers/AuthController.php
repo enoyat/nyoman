@@ -99,7 +99,7 @@ class AuthController extends Controller
         $rules = [
             'name'                  => 'required|min:3|max:35|string|regex:/^[a-zA-Z ]+$/u',
             'email'                 => 'required|email|unique:users,email',
-            'nohp'                => 'required|min:10|int',
+            'nohp'                => 'required|min:10|max:13|string|regex:/^[0-9]+$/u',
             'password'              => 'required|confirmed'
 
         ];

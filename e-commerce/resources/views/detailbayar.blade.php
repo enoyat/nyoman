@@ -28,6 +28,13 @@
                     </td>
                 </tr>
                 <tr>
+                    <td>Transfer ke Rekening</td>
+                    <td>
+                        <p style='color: blue'>BCA 1234567890 a.n. Amira Bakery</p>
+
+                    </td>
+                </tr>
+                <tr>
                     <td>Status Pembayaran</td>
                     <td>
 

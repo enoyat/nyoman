@@ -32,7 +32,7 @@ class Alaporan extends Controller
         if ($tglawal>$tglakhir) {
         	return back()->withInput()->with('success', 'Tanggal awal harus lebih kecil dari tanggal akhir');  
         }
-        $dataorder=M_order::whereBetween('tglorder',[$tglawal,$tglakhir])->get();
+        $dataorder=M_order::whereBetween('tglorder',[$tglawal,$tglakhir])->where('f_bayar','1')->get();
         return view('admin.laporan.cetakpenjualan')->with(['dataorder'=>$dataorder,'tglawal'=>$tglawal,'tglakhir'=>$tglakhir]);
     }
 

@@ -9,6 +9,8 @@ use App\Models\M_order;
 use App\Models\User;
 use App\Models\M_kategori;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Session;
@@ -26,6 +28,15 @@ class Keranjang extends Controller
 
     public function tambahkeranjang($kdbarang)
     {
+        $request->validate([
+            'qty' => 'required|numeric|min:1',
+        ],
+        [
+            'qty.required' => 'Qty harus diisi',
+            'qty.numeric' => 'Qty harus angka',
+            'qty.min' => 'Qty minimal 1',
+        ]
+    );
         if (Auth::user()) {
             $id = $kdbarang;
             $cekstok = M_barang::where('kdbarang',$id)->where('stok', ">", 0)->count();
@@ -51,6 +62,16 @@ class Keranjang extends Controller
 
     public function ubahqty(Request $request)
     {
+        $validator=$request->validate([
+            'qty' => 'required|numeric|min:1',
+        ],
+        [
+            'qty.required' => 'Qty harus diisi',
+            'qty.numeric' => 'Qty harus angka',
+            'qty.min' => 'Qty minimal 1',
+        ]
+    );
+   
         $id = $request->id;
         $qty = $request->qty;
         $cekstok=M_barang::where('kdbarang',$request->kdbarang)->count();

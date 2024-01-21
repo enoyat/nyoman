@@ -44,10 +44,10 @@
                     </div>
                     <div class="form-group">
                         <label for=""><strong>No HP</strong></label>
-                        <input type="text" name="nohp" class="form-control" placeholder="nohp" value="{{ old('nohp')}}">
+                        <input type="text" name="nohp" class="form-control" placeholder="nohp" value="{{ old('nohp')}}" >
                     </div>                                        
                     <div class="form-group">
-                        <label for=""><strong>Password</strong></label>
+                        <label for=""><strong>Password</strong></label> 
                         <input type="password" name="password" class="form-control" placeholder="Password" value="{{ old('password')}}">
                     </div>
                     <div class="form-group">

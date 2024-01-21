@@ -113,6 +113,16 @@ class AOrder extends Controller
 
         $shark = M_order::find($id);
         M_order::where('kdorder', '=', $id)->update(['f_bayar' => '1', 'f_status' => '1']);
+        $barang=M_detorder::where('kdorder', '=', $id)->get();
+        foreach ($barang as $item) {
+            $kdbarang=$item->kdbarang;
+            $qty=$item->qty;
+            $stok=M_barang::where('kdbarang', '=', $kdbarang)->first();
+            $stokbaru=$stok->stok-$qty;
+            M_barang::where('kdbarang', '=', $kdbarang)->update(['stok' => $stokbaru]);
+        }
+
+
         return redirect()->route('aorder')
             ->with('success', 'Order sukses dikonfirmasi');
         //

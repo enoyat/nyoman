@@ -69,17 +69,19 @@
                         <td>
                             <?php echo $key->get_member->namamember; ?>
                         </td>
-                        <td>
+                        <td>@if (!empty($key->tglorder))
                             <?php echo date('d-m-Y', strtotime($key->tglorder)); ?>
+                            @endif
                         </td>
 
                         <td style="text-align: center;"><?php echo 'Rp. ' . number_format($key->total, 0, ',', '.');
                         $total = $total + $key->total; ?>
 
                         </td>
-                        <td>
+                        <td>@if (!empty($key->tglverifikasi))
                             <?php echo 'Tgl.Verifikasi ';
                             echo date('d-m-Y', strtotime($key->tglverifikasi)); ?>
+                            @endif
                         </td>
                         <td>
                             <?php
