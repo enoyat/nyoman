@@ -28,15 +28,7 @@ class Keranjang extends Controller
 
     public function tambahkeranjang($kdbarang)
     {
-        $request->validate([
-            'qty' => 'required|numeric|min:1',
-        ],
-        [
-            'qty.required' => 'Qty harus diisi',
-            'qty.numeric' => 'Qty harus angka',
-            'qty.min' => 'Qty minimal 1',
-        ]
-    );
+      
         if (Auth::user()) {
             $id = $kdbarang;
             $cekstok = M_barang::where('kdbarang',$id)->where('stok', ">", 0)->count();
