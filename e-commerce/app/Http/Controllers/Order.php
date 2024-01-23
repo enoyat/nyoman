@@ -117,6 +117,7 @@ class Order extends Controller
         $order = M_order::find($request->id);
         $order->f_proses = "3";
         $order->f_status = "3";
+        $order->tglterima=date('Y-m-d');
         $order->save();
         return redirect()->route('order');
     }

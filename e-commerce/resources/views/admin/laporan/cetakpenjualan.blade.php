@@ -78,9 +78,9 @@
                         $total = $total + $key->total; ?>
 
                         </td>
-                        <td>@if (!empty($key->tglverifikasi))
-                            <?php echo 'Tgl.Verifikasi ';
-                            echo date('d-m-Y', strtotime($key->tglverifikasi)); ?>
+                        <td>@if (!empty($key->tglterima))
+                            <?php 
+                            echo date('d-m-Y', strtotime($key->tglterima)); ?>
                             @endif
                         </td>
                         <td>
