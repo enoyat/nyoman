@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2023 at 03:01 PM
+-- Generation Time: Jan 23, 2024 at 05:55 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `e-commerce`
+-- Database: `ecommerce`
 --
 
 -- --------------------------------------------------------
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `barang` (
   `deskripsi` text NOT NULL,
   `berat` int(11) DEFAULT NULL,
   `stok` int(11) NOT NULL DEFAULT 0,
-  `hargabeli` double NOT NULL,
+  `hargabeli` double DEFAULT NULL,
   `hargajual` double NOT NULL,
   `foto` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
   `kdkategori` varchar(10) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
@@ -79,26 +79,24 @@ CREATE TABLE IF NOT EXISTS `barang` (
 --
 
 INSERT INTO `barang` (`kdbarang`, `namabarang`, `deskripsi`, `berat`, `stok`, `hargabeli`, `hargajual`, `foto`, `kdkategori`, `f_fitur`, `f_aktif`, `jmlview`, `created_at`, `updated_at`) VALUES
-('A002', 'Aquascape Bukit Cinta', 'Bahan Kaca 5mm\r\nDimensi 60x30x30\r\nfull set :\r\nlampu, filter, konten\r\n', 400, 0, 400000, 400000, 'Screenshot 2020-07-14 at 01.34.27.png', 'AQUASTORE', '0', '1', 226, NULL, '2023-01-17 05:54:03'),
-('A003', 'Paludarium Mini Konsep Tebing', 'Bahan akilik\r\ndimensi 20x20x15cm\r\nfullset ', 400, -1, 150000, 250000, 'Screenshot 2020-07-14 at 01.40.25.png', 'AQUASTORE', '1', '1', 517, NULL, '2023-01-17 10:59:29'),
-('A004', 'Paludarium Mini Konsep Tebing', 'Bahan Akrilik\r\ndimensi 25x20x15 cm\r\nfull set', 400, 0, 150000, 250000, 'Screenshot 2020-07-14 at 01.44.15.png', 'AQUASTORE', '1', '1', 630, NULL, '2023-01-16 01:12:07'),
-('A01', 'Aquascape Water Fall', 'Bahan Akrilik\r\nDimensi: 15x15x25cm\r\nkonsep waterfall', 400, -1, 100000, 200000, 'Screenshot 2020-07-14 at 01.25.32.png', 'AQUASTORE', '1', '1', 240, NULL, '2023-01-11 18:26:49'),
-('L001', 'Ikan Hias Laut', 'Sedia ikan hias air laut. Nemo, cicit, Kepe, Terumbu Karang dll', 400, 0, 10000, 25000, 'Screenshot 2020-07-14 at 01.48.37.png', 'AQUASTORE', '0', '1', 202, NULL, '2023-01-17 13:03:44'),
-('L002', 'Polip Matahari', 'Jenis : Anemon Polip Matahari <br>\r\nWarna : merah orange', 400, 0, 15000, 60000, 'Polip Matahari.jpg', 'AQUASTORE', '0', '1', 221, NULL, '2023-01-15 13:29:58'),
-('L003', 'Siwalan Orange', 'Jenis : Anemon Siwalan Orange<br>\r\nWarna : Orange', 400, 0, 65000, 150000, 'Siwalan Orange.jpg', 'AQUASTORE', '0', '1', 264, NULL, '2023-01-17 02:04:09'),
-('L004', 'Batu Hiu/Batu Jeruk', 'Jenis : Anemon Batu Hiu<br>\r\nWarna : Hijau', 400, 0, 15000, 45000, 'anemon batu hiu.jpg', 'AQUASTORE', '0', '1', 401, NULL, '2023-01-17 09:16:30'),
-('L005', 'Karang Otak Hijau', 'Jenis : Anemon Katang Otak Hijau <br>\r\nWarna : Hijau', 400, 0, 35000, 210000, 'otak ijo edit.jpg', 'AQUASTORE', '0', '1', 354, NULL, '2023-01-14 21:05:04'),
-('L006', 'Karang Daging Hijau', 'Jenis : Anemon Karang Daging Hijau<br>\r\nWarna : Hijau', 400, 0, 35000, 90000, 'Karang daging hijau.jpg', 'AQUASTORE', '0', '1', 194, NULL, '2023-01-11 03:36:49'),
-('L007', 'Piring Hijau', 'Jenis : Anemon Piring Hijau <br>\r\nWarna : Hijau', 400, 0, 45000, 120000, 'piring edit.jpg', 'AQUASTORE', '0', '1', 171, NULL, '2023-01-16 07:33:31'),
-('L008', 'Angel BK', 'warna : Biru Kuning', 400, 0, 15000, 45000, 'angel bk.jpg', 'AQUASTORE', '0', '1', 214, NULL, '2023-01-14 10:33:21'),
-('L009', 'Brown Kelly', 'Warna Coklat dengan Bulatan Putih', 400, 0, 20000, 60000, 'Brown Kelly.jpg', 'AQUASTORE', '0', '1', 315, NULL, '2023-01-17 05:48:41'),
-('L010', 'Balong Merah', 'Warna Merah dengan Strip Putih', 400, 0, 9000, 25000, 'balong merah.jpg', 'AQUASTORE', '0', '1', 163, NULL, '2023-01-17 13:30:57'),
-('L011', 'Negro Size M', 'Warna Hitam dengan strip putih', 400, 0, 9000, 25000, 'negro.jpg', 'AQUASTORE', '0', '1', 302, NULL, '2023-01-15 14:17:04'),
-('L012', 'Polimas Size S', 'Warna dominan hitam dengan strip putih dan orange di siripnya', 400, 0, 9000, 25000, 'polimas.jpg', 'AQUASTORE', '0', '1', 242, NULL, '2023-01-13 14:44:20'),
-('L013', 'Nemo Sedang', 'Warna dominan orange dengan strip putih', 400, 0, 10000, 30000, 'Clown Fish.jpg', 'AQUASTORE', '0', '1', 248, NULL, '2023-01-14 18:46:56'),
-('L014', 'Dasi Biru Kecil', 'Warna silver dengan biru di sirip atas dan kuning di sirip bawah', 400, 0, 5000, 15000, 'dasi biru.jpg', 'AQUASTORE', '0', '1', 178, NULL, '2023-01-16 09:27:07'),
-('L015', 'Blueband', 'warna Hitam degan Strip Biru', 400, 0, 5000, 15000, 'BlueBand.jpg', 'AQUASTORE', '0', '1', 196, NULL, '2023-01-16 17:24:00'),
-('L016', 'Kepe Bulan', 'Warna Dominan Putih dengan Strip Kuning dan ada bulatan hitam di badan bagian atas', 400, 0, 12500, 35000, 'kepe monyong.jpg', 'AQUASTORE', '0', '1', 201, NULL, '2023-01-15 14:16:04');
+('A002', 'Aquascape Bukit Cinta', 'Bahan Kaca 5mm\r\nDimensi 60x30x30\r\nfull set :\r\nlampu, filter, konten', 400, 97, 400000, 400000, '1705537068.jpg', 'AQUASTORE', '0', '1', 226, NULL, '2024-01-18 07:26:42'),
+('A003', 'Paludarium Mini Konsep Tebing', 'Bahan akilik\r\ndimensi 20x20x15cm\r\nfullset', 400, 98, 150000, 250000, '1705537080.jpg', 'AQUASTORE', 'N', '1', 517, NULL, '2024-01-22 21:45:20'),
+('A004', 'Paludarium Mini Konsep Tebing', 'Bahan Akrilik\r\ndimensi 25x20x15 cm\r\nfull set', 400, 100, 150000, 250000, '1705537091.jpg', 'AQUASTORE', '1', '1', 630, NULL, '2024-01-18 20:46:34'),
+('A01', 'Aquascape Water Fall', 'Bahan Akrilik\r\nDimensi: 15x15x25cm\r\nkonsep waterfall', 400, 94, 100000, 200000, '1705537103.jpg', 'AQUASTORE', '1', '1', 240, NULL, '2024-01-22 21:49:39'),
+('L001', 'Ikan Hias Laut', 'Sedia ikan hias air laut. Nemo, cicit, Kepe, Terumbu Karang dll', 400, 100, 10000, 25000, '1705537120.jpg', 'AQUASTORE', '1', '1', 202, NULL, '2024-01-17 17:18:40'),
+('L002', 'Polip Matahari', 'Jenis : Anemon Polip Matahari <br>\r\nWarna : merah orange', 400, 100, 15000, 60000, '1705537129.jpg', 'AQUASTORE', '1', '1', 221, NULL, '2024-01-17 17:18:49'),
+('L003', 'Siwalan Orange', 'Jenis : Anemon Siwalan Orange<br>\r\nWarna : Orange', 400, 100, 65000, 150000, '1705537140.jpg', 'AQUASTORE', '1', '1', 264, NULL, '2024-01-17 17:19:00'),
+('L004', 'Batu Hiu/Batu Jeruk', 'Jenis : Anemon Batu Hiu<br>\r\nWarna : Hijau', 400, 90, 15000, 45000, '1705537150.jpg', 'AQUASTORE', 'Y', '1', 401, NULL, '2024-01-22 21:49:39'),
+('L005', 'Karang Otak Hijau', 'Jenis : Anemon Katang Otak Hijau <br>\r\nWarna : Hijau', 400, 100, 35000, 210000, '1705537159.jpg', 'AQUASTORE', '0', '1', 354, NULL, '2024-01-17 17:19:19'),
+('L006', 'Karang Daging Hijau', 'Jenis : Anemon Karang Daging Hijau<br>\r\nWarna : Hijau', 400, 100, 35000, 90000, '1705537169.jpg', 'AQUASTORE', '0', '1', 194, NULL, '2024-01-17 17:19:29'),
+('L007', 'Piring Hijau', 'Jenis : Anemon Piring Hijau <br>\r\nWarna : Hijau', 400, 100, 45000, 120000, '1705537179.jpg', 'AQUASTORE', '0', '1', 171, NULL, '2024-01-17 17:19:39'),
+('L008', 'Angel BK', 'warna : Biru Kuning', 400, 98, 15000, 45000, '1705537189.jpg', 'AQUASTORE', '0', '1', 214, NULL, '2024-01-22 21:49:39'),
+('L010', 'Balong Merah', 'Warna Merah dengan Strip Putih', 400, 100, 9000, 25000, 'balong merah.jpg', 'AQUASTORE', '0', '1', 163, NULL, '2023-01-17 13:30:57'),
+('L011', 'Negro Size M', 'Warna Hitam dengan strip putih', 400, 100, 9000, 25000, 'negro.jpg', 'AQUASTORE', '0', '1', 302, NULL, '2023-01-15 14:17:04'),
+('L012', 'Polimas Size S', 'Warna dominan hitam dengan strip putih dan orange di siripnya', 400, 100, 9000, 25000, 'polimas.jpg', 'AQUASTORE', '0', '1', 242, NULL, '2023-01-13 14:44:20'),
+('L013', 'Nemo Sedang', 'Warna dominan orange dengan strip putih', 400, 100, 10000, 30000, 'Clown Fish.jpg', 'AQUASTORE', '0', '1', 248, NULL, '2023-01-14 18:46:56'),
+('L014', 'Dasi Biru Kecil', 'Warna silver dengan biru di sirip atas dan kuning di sirip bawah', 400, 100, 5000, 15000, 'dasi biru.jpg', 'AQUASTORE', '0', '1', 178, NULL, '2023-01-16 09:27:07'),
+('L015', 'Blueband', 'warna Hitam degan Strip Biru', 400, 100, 5000, 15000, 'BlueBand.jpg', 'AQUASTORE', '0', '1', 196, NULL, '2023-01-16 17:24:00');
 
 -- --------------------------------------------------------
 
@@ -118,16 +116,24 @@ CREATE TABLE IF NOT EXISTS `detorder` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`kdetorder`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 --
 -- Dumping data for table `detorder`
 --
 
 INSERT INTO `detorder` (`kdetorder`, `kdorder`, `kdbarang`, `qty`, `harga`, `jumlah`, `f_header`, `created_at`, `updated_at`) VALUES
-(5, 'O00000001', 'A01', 1, 200000, 200000, '1', '2023-11-28 02:23:50', '2023-11-28 02:23:50'),
-(6, 'O00000001', 'L047', 1, 90000, 90000, '0', '2023-11-28 02:23:50', '2023-11-28 02:23:50'),
-(7, 'O00000002', 'A003', 1, 250000, 250000, '1', '2023-11-28 06:27:34', '2023-11-28 06:27:34');
+(7, 'O00000002', 'A003', 1, 250000, 250000, '1', '2023-11-28 06:27:34', '2023-11-28 06:27:34'),
+(14, 'O00000007', 'L004', 2, 45000, 90000, '1', '2024-01-17 20:35:15', '2024-01-17 20:35:15'),
+(15, 'O00000008', 'A01', 1, 200000, 200000, '1', '2024-01-17 21:05:55', '2024-01-17 21:05:55'),
+(16, 'O00000009', 'L004', 1, 45000, 45000, '1', '2024-01-17 21:08:37', '2024-01-17 21:08:37'),
+(17, 'O00000010', 'A01', 1, 200000, 200000, '1', '2024-01-17 21:14:59', '2024-01-17 21:14:59'),
+(18, 'O00000011', 'A01', 1, 200000, 200000, '1', '2024-01-18 06:38:24', '2024-01-18 06:38:24'),
+(19, 'O00000012', 'L004', 1, 45000, 45000, '1', '2024-01-20 22:28:45', '2024-01-20 22:28:45'),
+(20, 'O00000012', 'A002', 3, 400000, 1200000, '0', '2024-01-20 22:28:45', '2024-01-20 22:28:45'),
+(21, 'O00000013', 'A01', 2, 200000, 400000, '1', '2024-01-22 21:43:20', '2024-01-22 21:43:20'),
+(22, 'O00000013', 'L008', 1, 45000, 45000, '0', '2024-01-22 21:43:20', '2024-01-22 21:43:20'),
+(23, 'O00000013', 'L004', 1, 45000, 45000, '0', '2024-01-22 21:43:20', '2024-01-22 21:43:20');
 
 --
 -- Triggers `detorder`
@@ -169,8 +175,6 @@ CREATE TABLE IF NOT EXISTS `fotobarang` (
 
 INSERT INTO `fotobarang` (`kdfoto`, `foto`, `kdbarang`) VALUES
 (1, 'Screenshot 2020-07-14 at 01.26.11.png', 'A01'),
-(2, 'Screenshot 2020-07-14 at 01.34.11.png', 'A002'),
-(3, 'Screenshot 2020-07-14 at 01.33.58.png', 'A002'),
 (4, 'Screenshot 2020-07-14 at 01.40.35.png', 'A003'),
 (5, 'Screenshot 2020-07-14 at 01.40.48.png', 'A003'),
 (6, 'Screenshot 2020-07-14 at 01.41.01.png', 'A003'),
@@ -201,8 +205,11 @@ CREATE TABLE IF NOT EXISTS `kategori` (
 --
 
 INSERT INTO `kategori` (`kdkategori`, `namakategori`, `icon`) VALUES
-('AQUASTORE', 'Aquatic Store', 'aquastore.png'),
-('DP', 'Souvenir dan Craft', 'digitalprinting.png');
+('AQUASTORE', 'Aquatic Store', 'cat-1.jpg'),
+('DF', 'Dried Fruit', 'cat-2.jpg'),
+('DFT', 'drink fruits', 'cat-4.jpg'),
+('DP', 'Souvenir dan Craft', 'cat-5.jpg'),
+('VG', 'Vegetables', 'cat-3.jpg');
 
 -- --------------------------------------------------------
 
@@ -248,7 +255,9 @@ INSERT INTO `member` (`kdmember`, `namamember`, `alamat`, `email`, `nohp`, `akti
 ('M00000001', 'pepep', 'alamatnya', 'pepep@gmail.com', '081', '1', 'ok', 'member', '2021-01-31 05:17:39', '2021-01-31 05:17:39'),
 ('M00000002', 'Zilfana Falahi', 'Kudus Jawa Tengah', 'zilfanafalahi45@gmail.com', '089652662784', '1', 'ezy16-09-1998', 'member', '2021-09-30 20:45:59', '2021-09-30 20:45:59'),
 ('M00000003', 'Sugiyatno, S.Kom', 'Gg. Musola No. 4', 'berandainformatika@gmail.com', '082227131797', '1', 'ok', 'member', '2021-09-30 20:49:45', '2021-09-30 20:49:45'),
-('M00000004', 'paijo', 'alamat', 'paijo@gmail.com', '082286265758', '1', 'ok', 'member', '2023-11-28 02:05:36', '2023-11-28 02:05:36');
+('M00000004', 'paijo', 'alamat', 'paijo@gmail.com', '082286265758', '1', 'ok', 'member', '2023-11-28 02:05:36', '2023-11-28 02:05:36'),
+('M00000005', 'pepep', 'sadsadsa', 'ok@gmail.com', '822862657582', '1', 'ok', 'member', '2024-01-18 06:37:40', '2024-01-18 06:37:40'),
+('M00000006', 'sdsds', 'qqqq', 'qq@gmail.com', '082286265758', '1', 'ok', 'member', '2024-01-20 22:10:45', '2024-01-20 22:10:45');
 
 -- --------------------------------------------------------
 
@@ -268,7 +277,7 @@ CREATE TABLE IF NOT EXISTS `notifikasi` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `notifikasi`
@@ -277,7 +286,9 @@ CREATE TABLE IF NOT EXISTS `notifikasi` (
 INSERT INTO `notifikasi` (`id`, `tglnotifikasi`, `kdmember`, `kdorder`, `isinotifikasi`, `f_baca`, `f_admbaca`, `created_at`, `updated_at`) VALUES
 (1, '2006-02-21', 'M00000001', 'O00000003', 'Pesanan Dikirim<br>Pesanan O00000003 telah dikirimkan pada tanggal 2021-02-06 09:05:18', '0', '1', '2021-02-06 02:05:18', '2021-02-08 08:52:39'),
 (2, '2008-02-21', 'M00000001', 'O00000002', 'Pesanan Dikirim<br>Pesanan O00000002 telah dikirimkan pada tanggal 2021-02-08 09:25:21', '0', '1', '2021-02-08 02:25:21', '2021-02-08 08:52:40'),
-(3, '2028-11-23', 'M00000004', 'O00000002', 'Pesanan Dikirim<br>Pesanan O00000002 telah dikirimkan pada tanggal 2023-11-28 13:58:30', '0', '0', '2023-11-28 06:58:30', '2023-11-28 06:58:30');
+(3, '2028-11-23', 'M00000004', 'O00000002', 'Pesanan Dikirim<br>Pesanan O00000002 telah dikirimkan pada tanggal 2023-11-28 13:58:30', '1', '0', '2023-11-28 06:58:30', '2024-01-18 08:09:37'),
+(4, '2023-01-24', 'M00000004', 'O00000007', 'Pesanan Dikirim<br>Pesanan O00000007 telah dikirimkan pada tanggal 2024-01-23 04:46:23', '0', '0', '2024-01-22 21:46:23', '2024-01-22 21:46:23'),
+(5, '2023-01-24', 'M00000004', 'O00000013', 'Pesanan Dikirim<br>Pesanan O00000013 telah dikirimkan pada tanggal 2024-01-23 04:49:49', '0', '0', '2024-01-22 21:49:49', '2024-01-22 21:49:49');
 
 -- --------------------------------------------------------
 
@@ -380,8 +391,14 @@ CREATE TABLE IF NOT EXISTS `tborder` (
 --
 
 INSERT INTO `tborder` (`kdorder`, `tglorder`, `total`, `tglverifikasi`, `tglkirim`, `tglterima`, `kdadmin`, `kdmember`, `totberat`, `penerima`, `alamatpenerima`, `ongkir`, `kurir`, `va`, `noresi`, `f_proses`, `f_status`, `f_cancel`, `f_bayar`, `filebukti`, `created_at`, `updated_at`) VALUES
-('O00000001', '2023-11-28', 290000, NULL, NULL, NULL, NULL, 'M00000004', 800, 'paijo', 'alamat', 0, 'Kirim Langsung', NULL, NULL, '0', '0', '0', '0', NULL, '2023-11-28 02:23:50', '2023-11-28 02:23:57'),
-('O00000002', '2023-11-28', 250000, NULL, '2023-11-28', NULL, NULL, 'M00000004', 400, 'paijo', 'alamat', 0, 'Kirim Langsung', NULL, '1121', '2', '1', '0', '1', '1701179210.jpg', '2023-11-28 06:27:34', '2023-11-28 06:58:30');
+('O00000002', '2023-11-28', 250000, NULL, '2023-11-28', NULL, NULL, 'M00000004', 400, 'paijo', 'alamat', 0, 'Kirim Langsung', NULL, '1121', '2', '1', '0', '1', '1701179210.jpg', '2023-11-28 06:27:34', '2024-01-22 21:45:20'),
+('O00000007', '2024-01-18', 126000, NULL, '2024-01-23', NULL, NULL, 'M00000004', 800, 'paijo', 'alamat', 36000, 'jne', NULL, '1121', '2', '1', '0', '1', '1705985065.png', '2024-01-17 20:35:15', '2024-01-22 21:46:23'),
+('O00000008', '2024-01-18', 200000, NULL, NULL, NULL, NULL, 'M00000004', 400, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', NULL, '2024-01-17 21:05:55', '2024-01-17 21:05:55'),
+('O00000009', '2024-01-18', 45000, NULL, NULL, NULL, NULL, 'M00000004', 400, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', NULL, '2024-01-17 21:08:37', '2024-01-17 21:08:37'),
+('O00000010', '2024-01-18', 208000, NULL, NULL, NULL, NULL, 'M00000004', 400, 'paijo', 'alamat', 8000, 'jne', NULL, NULL, '0', '0', '0', '0', NULL, '2024-01-17 21:14:59', '2024-01-17 21:20:04'),
+('O00000011', '2024-01-18', 200000, NULL, NULL, NULL, NULL, 'M00000004', 400, NULL, NULL, NULL, NULL, NULL, NULL, '0', '0', '0', '0', NULL, '2024-01-18 06:38:24', '2024-01-18 06:38:24'),
+('O00000012', '2024-01-21', 1265000, NULL, NULL, NULL, NULL, 'M00000006', 1600, 'sdsds', 'qqqq', 20000, 'pos', NULL, NULL, '0', '0', '0', '0', NULL, '2024-01-20 22:28:45', '2024-01-20 22:29:26'),
+('O00000013', '2024-01-23', 516000, NULL, '2024-01-23', '2024-01-23', NULL, 'M00000004', 1600, 'paijo', 'alamat', 26000, 'jne', NULL, '1121', '3', '3', '0', '1', '1705985350.png', '2024-01-22 21:43:20', '2024-01-22 21:52:13');
 
 -- --------------------------------------------------------
 
@@ -398,7 +415,7 @@ CREATE TABLE IF NOT EXISTS `troly` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
 
 -- --------------------------------------------------------
 
@@ -479,7 +496,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=159 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=161 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `users`
@@ -487,7 +504,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `email_verified_at`, `password`, `kdmember`, `access_token`, `remember_token`, `created_at`, `updated_at`) VALUES
 (19, 10, 'admin', 'admin@gmail.com', '2020-12-26 22:30:49', '$2y$10$tH4j2/.E43JRJD/BDhr5hOLN8IyEUsIqyq.FH1wyWMcFhE0chiFLm', '202100000002', NULL, NULL, '2020-12-26 22:30:49', '2021-07-27 05:33:18'),
-(158, 1, 'Paijo', 'paijo@gmail.com', '2023-11-28 02:05:36', '$2y$10$a8IdgwTepOp.zIhor3RP1e6fwRHS36BMLxZ0ZALeqc5W8Fuk2atFm', 'M00000004', NULL, NULL, '2023-11-28 02:05:36', '2023-11-28 02:05:36');
+(158, 1, 'Paijo', 'paijo@gmail.com', '2023-11-28 02:05:36', '$2y$10$a8IdgwTepOp.zIhor3RP1e6fwRHS36BMLxZ0ZALeqc5W8Fuk2atFm', 'M00000004', NULL, NULL, '2023-11-28 02:05:36', '2023-11-28 02:05:36'),
+(159, 1, 'Pepep', 'ok@gmail.com', '2024-01-18 06:37:40', '$2y$10$3pv3YOBMNn2Z6wLh4Pd/n.O963ILd9LYBBU5S1PF3dkYJOxFoDjAK', 'M00000005', NULL, NULL, '2024-01-18 06:37:40', '2024-01-18 06:37:40'),
+(160, 1, 'Sdsds', 'qq@gmail.com', '2024-01-20 22:10:45', '$2y$10$VzFAhC9NL29pEONMBPRRaes3EmHXhgYUPRiV5SKMWpxI5aIKeFab.', 'M00000006', NULL, NULL, '2024-01-20 22:10:45', '2024-01-20 22:10:45');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
